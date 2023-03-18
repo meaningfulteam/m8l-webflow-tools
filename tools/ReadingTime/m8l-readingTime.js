@@ -1,4 +1,27 @@
-import { consoleMsg, consoleProps } from "../General/m8l-consoleMsg.js";
+const rtConsoleProps = {
+    text_colors: {
+        Default: "black",
+        Error: "white",
+        Context: "white",
+    },
+    bg_colors: {
+        Default: "transparent",
+        Error: "red",
+        Context: "green",
+    },
+    types: {
+        Error: "Error",
+        Context: "Context",
+    },
+};
+
+const rtConsoleMsg = (category, msg) => {
+    console.log(
+        `%c${category}:%c ${msg}`,
+        `color: ${rtConsoleProps.text_colors[category]}; background-color: ${rtConsoleProps.bg_colors[category]}; font-size: larger; padding: 0rem 1rem`,
+        `color: ${rtConsoleProps.text_colors.default}`
+    );
+};
 
 const getReadingTime = (type = "cumulative", speed = 200) => {
     try {
@@ -39,28 +62,24 @@ const getReadingTime = (type = "cumulative", speed = 200) => {
             display.innerText = `${Math.round(totalTime)} min`;
         });
     } catch (error) {
-        consoleMsg(
-            consoleProps.types.Error,
+        rtConsoleMsg(
+            rtConsoleProps.types.Error,
             `Error trying to calculate reading time. Error message: ${error}`
         );
     }
 };
 
-function m8lReadingTime() {
-    try {
-        var m8lConfig = m8lConfig || {};
-        if (m8lConfig["readingTime"]) {
-            getReadingTime(
-                m8lConfig["readingTime"].calculationType,
-                m8lConfig["readingTime"].wordsPerMinute
-            );
-        }
-    } catch (error) {
-        consoleMsg(
-            consoleProps.types.Error,
-            "Implementation error in the 'CTA script' main thread."
+try {
+    var m8lConfig = m8lConfig || {};
+    if (m8lConfig["readingTime"]) {
+        getReadingTime(
+            m8lConfig["readingTime"].calculationType,
+            m8lConfig["readingTime"].wordsPerMinute
         );
     }
+} catch (error) {
+    rtConsoleMsg(
+        rtConsoleProps.types.Error,
+        "Implementation error in the 'CTA script' main thread."
+    );
 }
-
-window.m8lReadingTime = m8lReadingTime;
