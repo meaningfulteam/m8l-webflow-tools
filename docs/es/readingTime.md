@@ -72,11 +72,13 @@ El mismo se deberá colocar a los elementos con los que queremos mostrar el tiem
 A continuación, procederemos con la implementación de variable de configuración dentro de nuestro proyecto. Para ello deberemos copiar y pegar el siguiente bloque de código dentro de nuestra etiqueta `<head>`:
 
 ```html
+<!-- [Start: m8l Config] -->
 <script>
     var m8lConfig = {
         readingTime: {},
     };
 </script>
+<!-- [End: m8l Config] -->
 ```
 
 &nbsp;
@@ -87,6 +89,99 @@ A continuación, procederemos con la instalación del script de funcionalidad. P
 
 ```html
 <!-- [Start: Reading time Script] -->
-<script defer src="https://cdn.jsdelivr.net/gh/meaningfulteam/m8l-webflow-tools@main/tools/ReadingTime/m8l-readingTime.js"></script>
+<script
+    defer
+    src="https://cdn.jsdelivr.net/gh/meaningfulteam/m8l-webflow-tools@main/tools/ReadingTime/m8l-readingTime.js"
+></script>
 <!-- [End: Reading time Script] -->
 ```
+
+De esta forma, nuestro script de tiempo de lectura habrá funcionado correctamente y una vez publicado el proyecto, se verá en funcionamiento el script dentro de nuestro sitio web.
+
+&nbsp;
+
+---
+
+&nbsp;
+
+## **Configuraciones opcionales**
+
+Este script posee 2 configuraciones opcionales que podremos añadir a nuestro proyecto si lo deseamos. Para ello solo debemos añadir los parámetros necesarios dentro de nuestra variable de configuración `m8lConfig`.
+
+```html
+<!-- [Start: m8l Config] -->
+<script>
+    var m8lConfig = {
+        readingTime: {
+            // Aquí se ponen los parámetros opcionales
+            calculationType: "average",
+            wordsPerMinute: 250,
+        },
+    };
+</script>
+<!-- [End: m8l Config] -->
+```
+
+&nbsp;
+
+### **Personalización de tipo de cálculo**
+
+Este parámetro permite personalizar el cálculo del tiempo de lectura, basandose en el parámetro de "**_*calculationType*_**". El valor que se debe introducir en este campo debe ser de tipo "**String**" (texto entre comillas "" o ''). Ejemplo:
+
+```html
+<!-- [Start: m8l Config] -->
+<script>
+    var m8lConfig = {
+        readingTime: {
+            calculationType: "average",
+        },
+    };
+</script>
+<!-- [End: m8l Config] -->
+```
+
+Para este parámetro existen 4 diferentes tipos de cálculo:
+
+-   **cumulative**: cuyo método consiste en la suma de todos los tiempos de lectura de las fuentes señaladas en la página.
+-   **longerTime**: cuyo método consiste en la selección del tiempo de lectura más largo, entre las diferentes fuentes identificadas.
+-   **lessTime**: cuyo método consiste en la selección del tiempo de lectura más corto, entre las diferentes fuentes identificadas.
+-   **average**: cuyo método consiste en el cálculo del tiempo de lectura promedio, entre las diferentes fuentes identificadas.
+
+Es importante acotar, que si no se personaliza este campo, el valor utilizado por defecto será el de "**cumulative**".
+
+&nbsp;
+
+### **Personalización de la velocidad de lectura**
+
+Este parámetro permite personalizar el tipo de cálculo del tiempo de lectura, basandose en el parámetro de "**_*wordsPerMinute*_**". El valor que se debe introducir en este campo debe ser de tipo "**Number**". Ejemplo:
+
+```html
+<!-- [Start: m8l Config] -->
+<script>
+    var m8lConfig = {
+        readingTime: {
+            wordsPerMinute: 250,
+        },
+    };
+</script>
+<!-- [End: m8l Config] -->
+```
+
+Es importante acotar, que si no se personaliza este campo, el valor utilizado por defecto será de "**200**" palábras por minuto (valor estandar según diferentes estudios).
+
+&nbsp;
+
+---
+
+&nbsp;
+
+## **Errores**
+
+Es posible que durante la configuración, puedan saltar diferentes errores en la consola, si no estamos atentos a cada uno de los pasos realizados. Es por ello que dejamos por acá una pequeña guía para saber identificar el origen del problema según el mensaje de error:
+
+&nbsp;
+
+| Mensaje de error                                                                     | Causa                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Error trying to calculate reading time. Error message → Unrecognized calculationType | Ocurre cuando configuramos mal el parámetro "calculationType" y colocamos un valor no contemplado entre los 4 valores posibles. Recuerda escribir todo en minúsculas.                                            |
+| Implementation Error: Reading Time Script                                            | Ocurre cuando el script de implementación del tiempo de lectura automático, no fue configurado correctamente, debido a que los atributos asignados a los elementos no fueron los correctos o poseen algún error. |

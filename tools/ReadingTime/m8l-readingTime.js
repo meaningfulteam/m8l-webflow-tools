@@ -64,7 +64,7 @@ const getReadingTime = (type = "cumulative", speed = 200) => {
     } catch (error) {
         rtConsoleMsg(
             rtConsoleProps.types.Error,
-            `Error trying to calculate reading time | Error message → ${error}`
+            `Error trying to calculate reading time. Error message → ${error}`
         );
     }
 };
@@ -72,14 +72,15 @@ const getReadingTime = (type = "cumulative", speed = 200) => {
 try {
     var m8lConfig = m8lConfig || {};
     if (m8lConfig["readingTime"]) {
-        getReadingTime(
-            m8lConfig["readingTime"].calculationType,
-            m8lConfig["readingTime"].wordsPerMinute
-        );
+        try {
+            getReadingTime(
+                m8lConfig["readingTime"].calculationType,
+                m8lConfig["readingTime"].wordsPerMinute
+            );
+        } catch (err) {
+            throw new Error("Reading Time Script");
+        }
     }
 } catch (error) {
-    rtConsoleMsg(
-        rtConsoleProps.types.Error,
-        "Implementation error in the 'CTA script' main thread."
-    );
+    rtConsoleMsg(rtConsoleProps.types.Error, `Implementation '${error}'`);
 }
