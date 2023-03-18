@@ -64,7 +64,7 @@ const getReadingTime = (type = "cumulative", speed = 200) => {
     } catch (error) {
         rtConsoleMsg(
             rtConsoleProps.types.Error,
-            `Error trying to calculate reading time. Error message: ${error}`
+            `Error trying to calculate reading time | Error message -> ${error}`
         );
     }
 };
