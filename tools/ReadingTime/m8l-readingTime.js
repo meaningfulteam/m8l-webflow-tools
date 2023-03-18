@@ -1,4 +1,4 @@
-import { consoleMsg, consoleProps } from "../General/m8l-consoleMsg";
+import { consoleMsg, consoleProps } from "../General/m8l-consoleMsg.js";
 
 const getReadingTime = (type = "cumulative", speed = 200) => {
     try {
