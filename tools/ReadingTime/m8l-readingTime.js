@@ -3,7 +3,9 @@ import { consoleMsg, consoleProps } from "../General/m8l-consoleMsg.js";
 const getReadingTime = (type = "cumulative", speed = 200) => {
     try {
         let contents = document.querySelectorAll("[m8l-readingTime='content']");
-        let displayText = document.querySelectorAll("[m8l-readingTime='label']");
+        let displayText = document.querySelectorAll(
+            "[m8l-readingTime='label']"
+        );
         let totalTime,
             readingTimes = [];
         contents.forEach((content) => {
@@ -44,17 +46,21 @@ const getReadingTime = (type = "cumulative", speed = 200) => {
     }
 };
 
-try {
-    var m8lConfig = m8lConfig || {};
-    if (m8lConfig["readingTime"]) {
-        getReadingTime(
-            m8lConfig["readingTime"].calculationType,
-            m8lConfig["readingTime"].wordsPerMinute
+function m8lReadingTime() {
+    try {
+        var m8lConfig = m8lConfig || {};
+        if (m8lConfig["readingTime"]) {
+            getReadingTime(
+                m8lConfig["readingTime"].calculationType,
+                m8lConfig["readingTime"].wordsPerMinute
+            );
+        }
+    } catch (error) {
+        consoleMsg(
+            consoleProps.types.Error,
+            "Implementation error in the 'CTA script' main thread."
         );
     }
-} catch (error) {
-    consoleMsg(
-        consoleProps.types.Error,
-        "Implementation error in the 'CTA script' main thread."
-    );
 }
+
+window.addEventListener("load", m8lReadingTime);
