@@ -63,4 +63,4 @@ function m8lReadingTime() {
     }
 }
 
-window.addEventListener("load", m8lReadingTime);
+window.m8lReadingTime = m8lReadingTime;
