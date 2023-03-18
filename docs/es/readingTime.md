@@ -87,6 +87,6 @@ A continuación, procederemos con la instalación del script de funcionalidad. P
 
 ```html
 <!-- [Start: Reading time Script] -->
-<script defer src="https://cdn.jsdelivr.net/npm/@finsweet/attributes-selectcustom@1/selectcustom.js" ></script>
+<script defer type="module" src="https://cdn.jsdelivr.net/gh/meaningfulteam/m8l-webflow-tools@latest/tools/ReadingTime/m8l-readingTime.js"></script>
 <!-- [End: Reading time Script] -->
 ```
