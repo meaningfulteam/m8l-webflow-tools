@@ -18,8 +18,8 @@ const consoleProps = {
 const consoleMsg = (category, msg) => {
     console.log(
         `%c${category}:%c ${msg}`,
-        `color: ${rtConsoleProps.text_colors[category]}; background-color: ${rtConsoleProps.bg_colors[category]}; font-size: larger; padding: 0rem 1rem`,
-        `color: ${rtConsoleProps.text_colors.default}`
+        `color: ${consoleProps.text_colors[category]}; background-color: ${consoleProps.bg_colors[category]}; font-size: larger; padding: 0rem 1rem`,
+        `color: ${consoleProps.text_colors.default}`
     );
 };
 
