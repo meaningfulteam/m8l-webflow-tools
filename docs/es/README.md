@@ -1,4 +1,4 @@
-**Idioma**: [Español](./README.md) | [Inglés](../en/README.md).
+**Idioma**: **[Español](./README.md)** | <span style="color:gray">**Inglés**</span>.
 
 ---
 
@@ -29,10 +29,11 @@ En este repositorio, podrás encontrar herramientas para:
 
 &nbsp;
 
-| **Versión** | **Nombre**                   | **Docs**                 |
-| ----------- | ---------------------------- | ------------------------ |
-| **1.0.0**   | CTAs custom en RichText      | [Link](./customCtas.md)  |
-| **1.0.0**   | Tiempo de lectura automático | [Link](./readingTime.md) |
+| **Versión** | **Nombre**                   | **Docs**                          |
+| ----------- | ---------------------------- | --------------------------------- |
+| **1.0.0**   | CTAs custom en RichText      | [Link](./tools/customCtas.md)     |
+| **1.0.0**   | Tiempo de lectura automático | [Link](./tools/readingTime.md)    |
+| **1.0.0**   | Contador de tiempo regresivo | [Link](./tools/countdownTimer.md) |
 
 &nbsp;
 
@@ -62,20 +63,20 @@ Todas nuestras funcionalidades, se basan en la configuración de la variable "**
 
 ```javascript
 var m8lConfig = {
-        customCtas: {
-            list: "cta-1,cta-2,cta-5",
-            source: "source href"
-        },
-        readingTime: {
-            calculationType: "average",
-            wordsPerMinute: 200
-        }
-    };
+    customCtas: {
+        list: "cta-1,cta-2,cta-5",
+        source: "source href",
+    },
+    readingTime: {
+        calculationType: "average",
+        wordsPerMinute: 200,
+    },
+};
 ```
 
 &nbsp;
 
-Más adelante, explicaremos cómo configurar dicha variable para cada proyecto que deseemos realizar. 
+Más adelante, explicaremos cómo configurar dicha variable para cada proyecto que deseemos realizar.
 
 &nbsp;
 

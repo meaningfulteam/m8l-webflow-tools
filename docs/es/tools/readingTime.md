@@ -18,7 +18,7 @@ Para instalar la funcionalidad de tiempo de lectura dentro de tu página de art�
 
 &nbsp;
 
-![Reading time block on a blog post](../assets/readingTime/readingTime-example.png "Reading time block on a blog post.")
+![Reading time block on a blog post](../../assets/readingTime/readingTime-example.png "Reading time block on a blog post.")
 
 &nbsp;
 
@@ -40,7 +40,7 @@ Para la identificación de estos elementos, se utilizará el atributo:
 
 El mismo se deberá colocar a los elementos que queremos vincular en el cálculo del tiempo de lectura, tal como se muestra en la imagen a continuación:
 
-![Set an article body attribute](../assets/readingTime/readingTime-articleBody.png "Set an article body attribute")
+![Set an article body attribute](../../assets/readingTime/readingTime-articleBody.png "Set an article body attribute")
 
 &nbsp;
 
@@ -56,7 +56,7 @@ Para la identificación de estos elementos, se utilizará el atributo:
 
 El mismo se deberá colocar a los elementos con los que queremos mostrar el tiempo de lectura, tal como se muestra en la imagen a continuación:
 
-![Set label attribute](../assets/readingTime/readingTime-label.png "Set label attribute")
+![Set label attribute](../../assets/readingTime/readingTime-label.png "Set label attribute")
 
 &nbsp;
 
