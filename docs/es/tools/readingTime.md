@@ -90,8 +90,8 @@ A continuación, procederemos con la instalación del script de funcionalidad. P
 ```html
 <!-- [Start: Reading time Script] -->
 <script
-    defer
-    src="https://cdn.jsdelivr.net/gh/meaningfulteam/m8l-webflow-tools@main/tools/ReadingTime/m8l-readingTime.js"
+    type="module"
+    src="https://cdn.jsdelivr.net/gh/meaningfulteam/m8l-webflow-tools@v1.0.1/tools/ReadingTime/m8l-readingTime.js"
 ></script>
 <!-- [End: Reading time Script] -->
 ```
@@ -113,9 +113,10 @@ Este script posee 2 configuraciones opcionales que podremos añadir a nuestro pr
 <script>
     var m8lConfig = {
         readingTime: {
-            // Aquí se ponen los parámetros opcionales
+            // ↓ Aquí se ponen los parámetros opcionales ↓
             calculationType: "average",
             wordsPerMinute: 250,
+            // ↑ Aquí se ponen los parámetros opcionales ↑
         },
     };
 </script>
