@@ -117,7 +117,7 @@ A continuación, procederemos con la instalación del script de funcionalidad. P
 <!-- [Start: Reading time Script] -->
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/gh/meaningfulteam/m8l-webflow-tools@tree/v1.0.2/tools/CustomCtas"
+    src="https://cdn.jsdelivr.net/gh/meaningfulteam/m8l-webflow-tools@v1.0.2/tools/CustomCtas/m8l-customCtas.js"
 ></script>
 <!-- [End: Reading time Script] -->
 ```
