@@ -91,7 +91,7 @@ A continuación, procederemos con la instalación del script de funcionalidad. P
 <!-- [Start: Reading time Script] -->
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/gh/meaningfulteam/m8l-webflow-tools@v1.0.3/tools/ReadingTime/m8l-readingTime.js"
+    src="https://cdn.jsdelivr.net/gh/meaningfulteam/m8l-webflow-tools@v1.1.0/tools/ReadingTime/m8l-readingTime.js"
 ></script>
 <!-- [End: Reading time Script] -->
 ```
