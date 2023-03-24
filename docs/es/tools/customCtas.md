@@ -184,6 +184,7 @@ Este parámetro permite construir los CTA personalizados en otra página del pro
 <script>
     window.m8lConfig = {
         customCtas: {
+            list: "ctaName-1,ctaName-2,ctaName-3",
             source: "https://www.example.com/ctas",
         },
     };
