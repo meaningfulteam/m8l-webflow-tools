@@ -49,6 +49,7 @@ const getReadingTime = (type = "cumulative", speed = 200) => {
 document.addEventListener("DOMContentLoaded", function () {
     try {
         var m8lConfig = m8lConfig || {};
+        console.log(m8lConfig)
         if (m8lConfig["readingTime"]) {
             try {
                 getReadingTime(
