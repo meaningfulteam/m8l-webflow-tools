@@ -74,7 +74,7 @@ A continuación, procederemos con la implementación de variable de configuraci�
 ```html
 <!-- [Start: m8l Config] -->
 <script>
-    var m8lConfig = {
+    window.m8lConfig = {
         readingTime: {},
     };
 </script>
@@ -91,7 +91,7 @@ A continuación, procederemos con la instalación del script de funcionalidad. P
 <!-- [Start: Reading time Script] -->
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/gh/meaningfulteam/m8l-webflow-tools@v1.0.2/tools/ReadingTime/m8l-readingTime.js"
+    src="https://cdn.jsdelivr.net/gh/meaningfulteam/m8l-webflow-tools@v1.0.3/tools/ReadingTime/m8l-readingTime.js"
 ></script>
 <!-- [End: Reading time Script] -->
 ```
@@ -111,7 +111,7 @@ Este script posee 2 configuraciones opcionales que podremos añadir a nuestro pr
 ```html
 <!-- [Start: m8l Config] -->
 <script>
-    var m8lConfig = {
+    window.m8lConfig = {
         readingTime: {
             // ↓ Aquí se ponen los parámetros opcionales ↓
             calculationType: "average",
@@ -132,7 +132,7 @@ Este parámetro permite personalizar el cálculo del tiempo de lectura, basandos
 ```html
 <!-- [Start: m8l Config] -->
 <script>
-    var m8lConfig = {
+    window.m8lConfig = {
         readingTime: {
             calculationType: "average",
         },
@@ -159,7 +159,7 @@ Este parámetro permite personalizar el tipo de cálculo del tiempo de lectura, 
 ```html
 <!-- [Start: m8l Config] -->
 <script>
-    var m8lConfig = {
+    window.m8lConfig = {
         readingTime: {
             wordsPerMinute: 250,
         },

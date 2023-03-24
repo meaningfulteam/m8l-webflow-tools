@@ -44,7 +44,7 @@ const getHtmlSource = async (url) => {
 };
 document.addEventListener("DOMContentLoaded", function () {
     try {
-        var m8lConfig = m8lConfig || {};
+        let m8lConfig = window.m8lConfig || {};
         if (m8lConfig["customCtas"]) {
             let ctaArray = m8lConfig["customCtas"].list.split(",");
             getHtmlSource(m8lConfig["customCtas"].source).then((html) => {

@@ -62,7 +62,7 @@ Todas nuestras funcionalidades, se basan en la configuración de la variable "**
 &nbsp;
 
 ```javascript
-var m8lConfig = {
+window.m8lConfig = {
     customCtas: {
         list: "cta-1,cta-2,cta-5",
         source: "source href",
