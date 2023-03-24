@@ -85,7 +85,7 @@ A continuaci처n, procederemos con la implementaci처n de variable de configuraci�
 
 ### **Paso 3:** _*Instalaci처n*_.
 
-A continuaci처n, procederemos con la instalaci처n del script de funcionalidad. Para ello deberemos copiar y pegar el siguiente bloque de c처digo dentro de nuestra etiqueta `<head>`:
+A continuaci처n, procederemos con la instalaci처n del script de funcionalidad. Para ello deberemos copiar y pegar el siguiente bloque de c처digo dentro de nuestra etiqueta `<body>`:
 
 ```html
 <!-- [Start: Reading time Script] -->

@@ -111,15 +111,15 @@ Luego, podemos simplemente ocultar los CTA con la clase "hide" (la cual según l
 
 ### **Paso 3:** _*Instalación*_.
 
-A continuación, procederemos con la instalación del script de funcionalidad. Para ello deberemos copiar y pegar el siguiente bloque de código dentro de nuestra etiqueta `<head>`:
+A continuación, procederemos con la instalación del script de funcionalidad. Para ello deberemos copiar y pegar el siguiente bloque de código dentro de nuestra etiqueta `<body>`:
 
 ```html
-<!-- [Start: Reading time Script] -->
+<!-- [Start: Custom CTAs Script] -->
 <script
     type="module"
     src="https://cdn.jsdelivr.net/gh/meaningfulteam/m8l-webflow-tools@v1.0.2/tools/CustomCtas/m8l-customCtas.js"
 ></script>
-<!-- [End: Reading time Script] -->
+<!-- [End: Custom CTAs Script] -->
 ```
 
 De esta forma, nuestro script habrá funcionado correctamente y una vez publicado el proyecto, se verá en funcionamiento dentro de nuestro sitio web.
