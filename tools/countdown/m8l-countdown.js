@@ -43,7 +43,7 @@ const addCountdown = (date, index, numbered, defaultMessage, callBack) => {
 };
 
 const initCountdown = (dateArr, defaultMessage, callBack) => {
-    const numbered = dateArr.length > 0;
+    const numbered = dateArr.length > 1;
     dateArr.forEach((date, i) => {
         addCountdown(date, i, numbered, defaultMessage, callBack);
     });
