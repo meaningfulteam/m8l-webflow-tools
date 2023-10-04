@@ -33,7 +33,7 @@ En este repositorio, podrás encontrar herramientas para:
 | ----------- | ---------------------------- | --------------------------------- |
 | **1.1.0**   | CTAs custom en RichText      | [Link](./tools/customCtas.md)     |
 | **1.1.0**   | Tiempo de lectura automático | [Link](./tools/readingTime.md)    |
-| **1.0.0**   | Contador de tiempo regresivo | <span style="color:gray">Link</span> |
+| **1.0.0**   | Contador de tiempo regresivo | [Link](./tools/countdownTimer.md) |
 
 &nbsp;
 
