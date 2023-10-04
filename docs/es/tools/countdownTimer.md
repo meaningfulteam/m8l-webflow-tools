@@ -102,7 +102,7 @@ A continuación, procederemos con la instalación del script de funcionalidad. P
 
 ```html
 <!-- [Start: Countdown Script] -->
-<script type="module" src=""></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/meaningfulteam/m8l-webflow-tools@v1.1.1/tools/countdown/m8l-countdown.js"></script>
 <!-- [End: Countdown Script] -->
 ```
 
