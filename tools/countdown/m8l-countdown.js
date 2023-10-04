@@ -1,51 +1,112 @@
 import { consoleProps, consoleMsg } from "../common/m8l-consoleMsg.js";
 
+/*
+m8lConfig = {
+    countdown: {
+        data: [
+            {
+                date: "Nov 1, 2023 12:00:00",
+                config: ["d", "h", "m", "s"],
+            },
+            {
+                date: "Nov 2, 2023 12:00:00",
+                config: ["h", "m"],
+            },
+            {
+                date: "Nov 3, 2022 12:00:00",
+                config: ["h", "m", "s"],
+            },
+            {
+                date: "Nov 3, 2022 12:00:00",
+            },
+        ],
+        defaultMessage: "Its Over!",
+        callBack: () => console.log("Its works!!"),
+    },
+};
+*/
+
 const TOOL_NAME = "countdown";
 const COUNTDOWN_ATTR = "m8l-countdown";
+const VALID_CONFIG = ["d", "h", "m", "s"];
 
-const addCountdown = (date, index, numbered, defaultMessage, callBack) => {
-    const suffix = numbered ? `-${index + 1}` : "";
-    const [$dW, $hW, $mW, $sW, $tW] = [
-        document.querySelector(`[${COUNTDOWN_ATTR}="d${suffix}"]`),
-        document.querySelector(`[${COUNTDOWN_ATTR}="h${suffix}"]`),
-        document.querySelector(`[${COUNTDOWN_ATTR}="m${suffix}"]`),
-        document.querySelector(`[${COUNTDOWN_ATTR}="s${suffix}"]`),
-        document.querySelector(`[${COUNTDOWN_ATTR}="timeWrapper${suffix}"]`),
-    ];
-
+const addCountdown = ({
+    date,
+    suffixState,
+    config = VALID_CONFIG,
+    fixedIndex,
+    callBack,
+    defaultMessage = "",
+}) => {
+    const filteredConfig = config.filter((item) => VALID_CONFIG.includes(item));
     const goalDate = new Date(date).getTime();
+    const suffix = suffixState ? `-${fixedIndex}` : "";
+
+    const $items = {
+        wrapper: document.querySelector(
+            `[${COUNTDOWN_ATTR}="timeWrapper${suffix}"]`
+        ),
+    };
+    filteredConfig.forEach((config) => {
+        $items[config] = document.querySelector(
+            `[${COUNTDOWN_ATTR}="${config}${suffix}"]`
+        );
+    });
+
+    Object.keys($items).forEach((key) => {
+        if (!$items[key]) throw new Error("Elements not found");
+    });
+
     const interval = setInterval(() => {
         const delta = goalDate - new Date().getTime();
-        const [d, h, m, s] = [
-            Math.floor(delta / (1000 * 60 * 60 * 24)),
-            Math.floor((delta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-            Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60)),
-            Math.floor((delta % (1000 * 60)) / 1000),
-        ];
-        $dW.innerText = String(d).padStart(2, "0");
-        $hW.innerText = String(h).padStart(2, "0");
-        $mW.innerText = String(m).padStart(2, "0");
-        $sW.innerText = String(s).padStart(2, "0");
+        const times = {
+            d: Math.floor(delta / (1000 * 60 * 60 * 24)),
+            h: Math.floor((delta % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+            m: Math.floor((delta % (1000 * 60 * 60)) / (1000 * 60)),
+            s: Math.floor((delta % (1000 * 60)) / 1000),
+        };
+
+        filteredConfig.forEach((key) => {
+            $items[key].innerText = String(times[key]).padStart(2, "0");
+        });
 
         if (delta <= 0) {
             if (callBack) {
-                callBack({ date, suffix });
+                callBack({
+                    date: date,
+                    suffix: suffix,
+                    config: filteredConfig,
+                });
             } else {
                 consoleMsg(
                     consoleProps.types.Context,
                     `The countdown script does not have a callback configured.`
                 );
-                $tW.innerText = defaultMessage;
+                $items.wrapper.innerHTML = defaultMessage;
             }
             clearInterval(interval);
         }
     }, 1000);
 };
 
-const initCountdown = (dateArr, defaultMessage, callBack) => {
-    const numbered = dateArr.length > 1;
-    dateArr.forEach((date, i) => {
-        addCountdown(date, i, numbered, defaultMessage, callBack);
+const initCountdown = ({ data, defaultMessage, callBack }) => {
+    const suffixState = data.length > 1;
+    data.forEach((dateObj, index) => {
+        try {
+            addCountdown({
+                date: dateObj.date,
+                config: dateObj.config,
+                suffixState: suffixState,
+                fixedIndex: index + 1,
+                callBack: callBack,
+                defaultMessage: defaultMessage,
+            });
+        } catch (error) {
+            consoleMsg(
+                consoleProps.types.Error,
+                `Configuration error in date:'{date: "${dateObj.date}", index: ${index}}' because: "${error}"'`
+            );
+        }
     });
 };
 
@@ -54,11 +115,11 @@ document.addEventListener("DOMContentLoaded", function () {
         let m8lConfig = window.m8lConfig || {};
         if (m8lConfig[TOOL_NAME]) {
             try {
-                initCountdown(
-                    m8lConfig[TOOL_NAME].dates,
-                    m8lConfig[TOOL_NAME].defaultMessage,
-                    m8lConfig[TOOL_NAME].callBack
-                );
+                initCountdown({
+                    data: m8lConfig[TOOL_NAME].data,
+                    defaultMessage: m8lConfig[TOOL_NAME].defaultMessage,
+                    callBack: m8lConfig[TOOL_NAME].callBack,
+                });
             } catch (err) {
                 throw new Error("Countdown Script");
             }
