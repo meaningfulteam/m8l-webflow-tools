@@ -1,31 +1,5 @@
 import { consoleProps, consoleMsg } from "../common/m8l-consoleMsg.js";
 
-/*
-m8lConfig = {
-    countdown: {
-        data: [
-            {
-                date: "Nov 1, 2023 12:00:00",
-                config: ["d", "h", "m", "s"],
-            },
-            {
-                date: "Nov 2, 2023 12:00:00",
-                config: ["h", "m"],
-            },
-            {
-                date: "Nov 3, 2022 12:00:00",
-                config: ["h", "m", "s"],
-            },
-            {
-                date: "Nov 3, 2022 12:00:00",
-            },
-        ],
-        defaultMessage: "Its Over!",
-        callBack: () => console.log("Its works!!"),
-    },
-};
-*/
-
 const TOOL_NAME = "countdown";
 const COUNTDOWN_ATTR = "m8l-countdown";
 const VALID_CONFIG = ["d", "h", "m", "s"];
@@ -35,7 +9,7 @@ const addCountdown = ({
     suffixState,
     config = VALID_CONFIG,
     fixedIndex,
-    callBack,
+    callback,
     defaultMessage = "",
 }) => {
     const filteredConfig = config.filter((item) => VALID_CONFIG.includes(item));
@@ -71,8 +45,8 @@ const addCountdown = ({
         });
 
         if (delta <= 0) {
-            if (callBack) {
-                callBack({
+            if (callback) {
+                callback({
                     date: date,
                     suffix: suffix,
                     config: filteredConfig,
@@ -89,7 +63,7 @@ const addCountdown = ({
     }, 1000);
 };
 
-const initCountdown = ({ data, defaultMessage, callBack }) => {
+const initCountdown = ({ data, defaultMessage, callback }) => {
     const suffixState = data.length > 1;
     data.forEach((dateObj, index) => {
         try {
@@ -98,7 +72,7 @@ const initCountdown = ({ data, defaultMessage, callBack }) => {
                 config: dateObj.config,
                 suffixState: suffixState,
                 fixedIndex: index + 1,
-                callBack: callBack,
+                callback: callback,
                 defaultMessage: defaultMessage,
             });
         } catch (error) {
@@ -118,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 initCountdown({
                     data: m8lConfig[TOOL_NAME].data,
                     defaultMessage: m8lConfig[TOOL_NAME].defaultMessage,
-                    callBack: m8lConfig[TOOL_NAME].callBack,
+                    callback: m8lConfig[TOOL_NAME].callback,
                 });
             } catch (err) {
                 throw new Error("Countdown Script");
