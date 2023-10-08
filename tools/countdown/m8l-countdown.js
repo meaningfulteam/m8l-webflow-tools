@@ -1,4 +1,4 @@
-import { consoleProps, consoleMsg } from "../common/m8l-consoleMsg.js";
+import { consoleProps, consoleMsg } from "../common/lib/m8l-consoleMsg";
 
 const TOOL_NAME = "countdown";
 const COUNTDOWN_ATTR = "m8l-countdown";
