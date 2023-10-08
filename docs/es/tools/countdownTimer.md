@@ -12,7 +12,7 @@ Los contadores de tiempo regresivo son una solución efectiva para crear un sent
 
 &nbsp;
 
-Para instalar la funcionalidad de contador de tiempo regresivo dentro de tu página de tu proyecto de webflow, sigue los pasos que te describimos a continuación:
+Para instalar la funcionalidad de contador de tiempo regresivo dentro de tu página en tu proyecto de webflow, sigue los pasos que te describimos a continuación:
 
 &nbsp;
 
