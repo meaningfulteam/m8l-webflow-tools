@@ -74,8 +74,8 @@ const createBox = ({ id, match, block, assets, styles, brackets }) => {
 };
 
 const cleanText = ({ match, brackets }) => {
-    const startRegExp = new RegExp(`[\\s\\n]*${brackets}"`, "gs");
-    const finalRegExp = new RegExp(`"${brackets}[\\s\\n]*`, "gs");
+    const startRegExp = new RegExp(`<p>[\\s\\n]*${brackets}"`, "gs");
+    const finalRegExp = new RegExp(`"${brackets}[\\s\\n]*</p>`, "gs");
     return match.replace(startRegExp, "").replace(finalRegExp, "");
 };
 
