@@ -25,8 +25,8 @@
 }
 
 .m8l-copyBlocks_icon-enable {
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 1.5rem;
+    height: 1.5rem;
     color: #c9d1d9;
     padding: 0.25rem;
     cursor: pointer;
@@ -40,9 +40,14 @@
     background-color: #4b5158;
 }
 
-.m8l-copyBlocks_icon-disable {
+.m8l-copyBlocks_icon-enable {
     width: 1.5rem;
     height: 1.5rem;
+    color: #c9d1d9;
+    padding: 0.25rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    background-color: #30363d;
 }
 
 @media screen and (width<=600px) {

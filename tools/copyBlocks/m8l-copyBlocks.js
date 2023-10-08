@@ -19,16 +19,25 @@ const copyText = ({ id, assets, styles }) => {
     navigator.clipboard.writeText(tempInput.value);
     tempInput.remove();
 
-    const icon = document.getElementById(`${id}-${TOOL_KEYS.image}`);
+    const icon = document.getElementById(`${id}-${TOOL_KEYS.button}`);
     if (assets.isDefault) {
         icon.innerHTML = assets.success;
+        icon.classList.remove(styles.icon.enable);
+        icon.classList.add(styles.icon.disable);
+
         setTimeout(() => {
             icon.innerHTML = assets.copy;
+            icon.classList.remove(styles.icon.disable);
+            icon.classList.add(styles.icon.enable);
         }, WAITING_TIME);
     } else {
-        icon.setAttribute("src", assets.success);
+        icon.querySelector("img").setAttribute("src", assets.success);
+        icon.classList.remove(styles.icon.enable);
+        icon.classList.add(styles.icon.disable);
         setTimeout(() => {
-            icon.setAttribute("src", assets.copy);
+            icon.querySelector("img").setAttribute("src", assets.copy);
+            icon.classList.remove(styles.icon.disable);
+            icon.classList.add(styles.icon.enable);
         }, WAITING_TIME);
     }
 };
@@ -53,11 +62,7 @@ const createBox = ({ id, match, block, assets, styles, brackets }) => {
     <div id="${id}-${TOOL_KEYS.button}" class="${
         styles.icon.enable
     }" ${TOOL_ATTR}="${TOOL_KEYS.button}">
-    ${
-        assets.isDefault
-            ? `<div id="${id}-${TOOL_KEYS.image}">${assets.copy}</div>`
-            : `<img id="${id}-${TOOL_KEYS.image}" src=${assets.copy}/>`
-    }
+    ${assets.isDefault ? assets.copy : `<img src=${assets.copy}/>`}
     </div>
     </div>
     <div id="${id}-${TOOL_KEYS.text}" class="${styles.block.body}">
