@@ -68,7 +68,7 @@ A continuación, procederemos con la instalación del script de funcionalidad. P
 <!-- [Start: Copy blocks Script] -->
 <script
     type="module"
-    src="https://cdn.jsdelivr.net/gh/meaningfulteam/m8l-webflow-tools@v1.2.0/tools/copyBlocks/m8l-copyBlocks.js"
+    src="https://cdn.jsdelivr.net/gh/meaningfulteam/m8l-webflow-tools@v1.2.1/tools/copyBlocks/m8l-copyBlocks.js"
 ></script>
 <!-- [End: Copy blocks Script] -->
 ```
