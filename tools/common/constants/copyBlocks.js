@@ -9,6 +9,8 @@ export const TOOL_KEYS = {
     image: "image",
     tempInput: "tempInput",
 };
+export const STYLES_URL =
+    "https://api.github.com/repos/meaningfulteam/m8l-webflow-tools/contents/tools/common/styles/copyBlocks.css";
 export const DEFAULT_BRACKETS = "%%cb%%";
 export const DEFAULT_STYLES = {
     icon: {

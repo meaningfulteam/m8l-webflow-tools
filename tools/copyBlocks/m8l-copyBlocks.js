@@ -7,6 +7,7 @@ import {
     DEFAULT_BRACKETS,
     TOOL_KEYS,
     WAITING_TIME,
+    STYLES_URL,
 } from "../common/constants/copyBlocks.js";
 
 const copyText = ({ id, assets, styles }) => {
@@ -64,9 +65,6 @@ const createBox = ({ id, match, block, assets, styles, brackets }) => {
     </div>
     </div>
     `;
-    console.log(match);
-    console.log(cleanText({ match, brackets }));
-
     block.innerHTML = block.innerHTML.replace(match, box);
 };
 
@@ -114,10 +112,14 @@ const renderBlocks = ({
 };
 
 const getStyles = async () => {
-    const req = await fetch("/tools/common/styles/copyBlocks.css");
-    const body = await req.text();
+    const repoBaseUrl = STYLES_URL;
+
+    const req = await fetch(repoBaseUrl);
+    const data = await req.json();
+    const content = atob(data.content);
+
     const styleElement = document.createElement("style");
-    styleElement.innerHTML = body;
+    styleElement.innerHTML = content;
     document.head.appendChild(styleElement);
 };
 
