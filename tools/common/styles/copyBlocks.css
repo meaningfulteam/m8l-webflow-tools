@@ -1,0 +1,52 @@
+.m8l-copyBlocks_blockClass {
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.m8l-copyBlocks_inputClass {
+    border-style: none;
+    color: #c9d1d9;
+    background-color: #161b22;
+    padding: 1rem 1.5rem;
+    font-weight: 400;
+    width: auto;
+    font-family: sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.m8l-copyBlocks_iconClass {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #c9d1d9;
+    padding: 0.25rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+.m8l-copyBlocks_iconClass:hover {
+    background-color: #30363d;
+}
+
+.m8l-copyBlocks_iconClass:active {
+    background-color: #4b5158;
+}
+
+.m8l-copyBlocks_disableClass {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.m8l-copyBlocks_headerClass {
+    display: flex;
+    justify-content: right;
+    background-color: #0d1117;
+    padding: 0.125rem 0.5rem;
+}
+
+@media screen and (width<=600px) {
+    .m8l-copyBlocks_inputClass {
+        padding: 1rem 1rem;
+    }
+}
