@@ -31,6 +31,9 @@
     padding: 0.25rem;
     cursor: pointer;
     border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .m8l-copyBlocks_icon-enable:hover {
     background-color: #30363d;
@@ -48,6 +51,9 @@
     cursor: pointer;
     border-radius: 0.5rem;
     background-color: #30363d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media screen and (width<=600px) {
